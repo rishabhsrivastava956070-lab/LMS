@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCreatorCourseData } from "../redux/courseSlice";
 import { toast } from "react-toastify";
 
+const serverUrl = "https://lms-84yp.onrender.com"; // 🔥 backend URL
+
 const GetCreatorCourseData = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.user);
@@ -13,11 +15,15 @@ const GetCreatorCourseData = () => {
 
     const getCreatorData = async () => {
       try {
-        const result = await axios.get("/api/course/getcreatorcourses");
+        const result = await axios.get(
+          `${serverUrl}/api/course/getcreatorcourses`,
+          { withCredentials: true } // 🔥 required for auth cookie
+        );
+
         dispatch(setCreatorCourseData(result.data));
         console.log("Creator courses:", result.data);
       } catch (error) {
-        console.error(error);
+        console.error("Creator courses error:", error);
         toast.error(
           error?.response?.data?.message || "Failed to load creator courses"
         );
@@ -27,7 +33,7 @@ const GetCreatorCourseData = () => {
     getCreatorData();
   }, [userData, dispatch]);
 
-  return null; // 👈 this component only fetches data
+  return null;
 };
 
 export default GetCreatorCourseData;
