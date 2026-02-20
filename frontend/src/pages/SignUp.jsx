@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
-const serverUrl = "http://localhost:8000";
+const serverUrl = "https://lms-84yp.onrender.com";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -221,3 +221,4 @@ function SignUp() {
 }
 
 export default SignUp;
+
