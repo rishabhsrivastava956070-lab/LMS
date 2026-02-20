@@ -11,7 +11,7 @@ import { ClipLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
-const serverUrl = "http://localhost:8000";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -176,3 +176,4 @@ function Login() {
 }
 
 export default Login;
+
