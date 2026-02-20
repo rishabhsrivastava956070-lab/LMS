@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://lms-1-ztnp.onrender.com",
     credentials: true,
   })
 );
@@ -53,3 +53,4 @@ const startServer = async () => {
 };
 
 startServer();
+
