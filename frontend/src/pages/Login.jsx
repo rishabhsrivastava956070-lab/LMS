@@ -11,7 +11,7 @@ import { ClipLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
-
+const serverUrl = "https://lms-84yp.onrender.com";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -176,4 +176,5 @@ function Login() {
 }
 
 export default Login;
+
 
